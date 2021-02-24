@@ -1,0 +1,19 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "consys",
+    "database": "test",
+    "synchronize": true,
+    "logging": true,
+    "cli":{
+       "migrationsDir": "./src/database/migrations"
+    },
+    "migrations": [
+         "./src/database/migrations/**.ts"
+      ],
+    "Entities": [
+         "./src/models/**.ts" 
+      ]
+ }

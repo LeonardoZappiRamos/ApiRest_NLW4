@@ -1,13 +1,16 @@
 import Express, { request, response } from 'express';
+import {router} from "./router";
+import "reflect-metadata";
+import { createConnection } from 'typeorm';
+import { User } from './models/User';
 
 const app = Express();
 
-app.get("/",(request , response) =>{
-    return response.send("Bem bolado !!!")
-});
+createConnection().then(connection => {
+    
+    app.use(Express.json());
+    app.use(router);
 
-app.post("/", (request, response) => {
-    return response.json({mensage : "Bem Bolado!!!"})
+    app.listen(3333, ()=>console.log("Server iniciado com sucesso !!"));
+
 })
-
-app.listen(3333, ()=>console.log("Server iniciado com sucesso !!"));

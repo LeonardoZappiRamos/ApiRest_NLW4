@@ -1,23 +1,25 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
-import { v4 as uuid} from "uuid";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { v4 as uuid } from 'uuid';
 
-@Entity()
-export class User{
+@Entity("users")
+class User {
     @PrimaryColumn()
     readonly id: string;
 
     @Column()
-    nome: string;
+    name: string;
 
     @Column()
     email: string;
 
-    @CreateDateColumn()
+    @CreateDateColumn({ precision: null, type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     created_at: Date;
 
-    constructor(){
-        if(!this.id){
-            this.id = uuid()
+    constructor() {
+        if (!this.id) {
+            this.id = uuid();
         }
     }
 }
+
+export { User };

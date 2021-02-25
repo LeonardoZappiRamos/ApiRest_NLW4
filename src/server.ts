@@ -1,16 +1,12 @@
-import Express, { request, response } from 'express';
+import Express from 'express';
 import {router} from "./router";
 import "reflect-metadata";
-import { createConnection } from 'typeorm';
-import { User } from './models/User';
+import "./database";
 
 const app = Express();
 
-createConnection().then(connection => {
     
     app.use(Express.json());
     app.use(router);
 
     app.listen(3333, ()=>console.log("Server iniciado com sucesso !!"));
-
-})

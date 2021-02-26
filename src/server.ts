@@ -1,12 +1,3 @@
-import Express from 'express';
-import {router} from "./router";
-import "reflect-metadata";
-import "./database";
+import {app} from './app';
 
-const app = Express();
-
-    
-    app.use(Express.json());
-    app.use(router);
-
-    app.listen(3333, ()=>console.log("Server iniciado com sucesso !!"));
+app.listen(3333, ()=>console.log("Server iniciado com sucesso !!"));

@@ -11,6 +11,8 @@
   <ul>
     <li>express</li>
     <li>typescript</li>
+    <li>jest</li>
+    <li>supertest</li>
   </ul>
   </ul>
 
